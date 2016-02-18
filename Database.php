@@ -98,4 +98,22 @@ class Database
             $response["data"] = "";
         }
     }
+
+    function addAction($pid,$name,$desc,$time,$uid)
+    {
+        try
+        {
+            mysqli_query('insert into actions (name, desc, time, uid, pid) values ("' . $name . '","' . $desc . '",' . $time . ',' . $uid . ',' . $pid . ')');
+
+            $response["status"] = "SUCCESS";
+            $response["message"] = "";
+            $response["data"] = "";
+        }
+        catch(mysqli_sql_exception $e)
+        {
+            $response["status"] = "FAILED";
+            $response["message"] = $e->errorMessage();
+            $response["data"] = "";
+        }
+    }
 }
