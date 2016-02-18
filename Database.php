@@ -23,7 +23,7 @@ class Database
     function login($pass, $user)
     {
         try {
-            $result = mysqli_query($this->conn, 'select * from "user" where name=' . $user . ' and pass=' . $pass);
+            $result = mysqli_query($this->conn, 'select * from "user" where name=""' . $user . '" and pass="' . md5($pass) . '"');
 
             if (mysqli_num_rows($result) == 1) {
                 $ret = true;
@@ -71,6 +71,9 @@ class Database
             $response["message"] = $e->errorMessage();
             $response["data"] = "";
         }
+
+        $json_response = json_encode($response);
+        return $json_response;
     }
 
     function getActions($pid,$uid)
@@ -97,6 +100,9 @@ class Database
             $response["message"] = $e->errorMessage();
             $response["data"] = "";
         }
+
+        $json_response = json_encode($response);
+        return $json_response;
     }
 
     function addAction($pid,$name,$desc,$time,$uid)
@@ -115,5 +121,8 @@ class Database
             $response["message"] = $e->errorMessage();
             $response["data"] = "";
         }
+
+        $json_response = json_encode($response);
+        return $json_response;
     }
 }
