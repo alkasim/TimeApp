@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - time_app@172.20.10.3" uuid="11d905e4-867b-484c-8562-e191ebdd67a9">
+    <database-info product="MySQL" version="5.5.47-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="time_app"/>
+      <table id="2" parent="1" name="actions"/>
+      <table id="3" parent="1" name="project"/>
+      <table id="4" parent="1" name="user"/>
+      <column id="5" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="6" parent="2" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="7" parent="2" name="desc">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="8" parent="2" name="time">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="9" parent="2" name="uid">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="10" parent="2" name="pid">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="11" parent="2" name="Project_idx">
+        <columns>pid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="12" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="13" parent="2" name="Project">
+        <columns>pid</columns>
+        <ref-key>~.project.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="14" parent="2" name="User2">
+        <columns>id</columns>
+        <ref-key>~.user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="15" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="16" parent="3" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="17" parent="3" name="desc">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="18" parent="3" name="uid">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="19" parent="3" name="timestamp">
+        <data-type>timestamp</data-type>
+      </column>
+      <key id="20" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="21" parent="3" name="User">
+        <columns>id</columns>
+        <ref-key>~.user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="22" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="23" parent="4" name="name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="24" parent="4" name="pass">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="25" parent="4" name="type">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <index id="26" parent="4" name="name_UNIQUE">
+        <columns>name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="27" parent="4" name="name_UNIQUE">
+        <columns>name</columns>
+        <underlying-index>name_UNIQUE</underlying-index>
+      </key>
+      <key id="28" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
